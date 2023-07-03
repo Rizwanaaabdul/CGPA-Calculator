@@ -1,11 +1,11 @@
 ## CGPA Calculator
-This CGPA (Cumulative Grade Point Average) calculator is developed in C++ specifically for my college and department purposes. It is designed to assist students in calculating their CGPA for each semester as well as their cumulative CGPA.
+This CGPA (Cumulative Grade Point Average) calculator is developed in C++ specifically for my college and department purposes. It is designed to assist students in calculating their CGPA for each semester as well as their cumulative CGPA.<br>
 
 ## Features
-User-friendly interface: The calculator provides a simple command line interface, making it easy for students to input their credits and grades.
-Semester-based calculations: The calculator allows students to calculate their CGPA for each semester separately, considering the specific credit requirements for even and odd semesters.
-Category classification: Based on the calculated CGPA, the calculator determines the category classification, including distinctions like "First Class with Distinction" and "First Class," enabling students to understand their academic performance level.
-Customizable for department courses: The code is tailored to match the courses, credits, and grade points of my department, ensuring accurate calculations and relevant category classifications.
+* User-friendly interface: The calculator provides a simple command line interface, making it easy for students to input their credits and grades.<br>
+* Semester-based calculations: The calculator allows students to calculate their CGPA for each semester separately, considering the specific credit requirements for even and odd semesters.<br>
+* Category classification: Based on the calculated CGPA, the calculator determines the category classification, including distinctions like "First Class with Distinction" and "First Class," enabling students to understand their academic performance level.<br>
+* Customizable for department courses: The code is tailored to match the courses, credits, and grade points of my department, ensuring accurate calculations and relevant category classifications.<br>
 
 
 ## Credit System
