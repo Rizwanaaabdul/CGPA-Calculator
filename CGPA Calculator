@@ -1,0 +1,257 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+void currsem();
+
+int cumulative_cgpa();
+void cumm_1();
+void cumm2();
+
+void class_rep();
+
+
+int main()
+
+{
+    while(true)
+    {
+    start:
+    cout<<"--------------------------- CGPA Calculation ------------------------------ "<<endl;
+    cout<<"        Context : "<<endl;
+    cout<<"                  1. Calculate cgpa for current sem "<<endl;
+    cout<<"                  2. Calculate cumulative cgpa "<<endl;
+    cout<<"                  3. Classification grades "<<endl;
+    cout<<"                  4. Exit"<<endl;
+    
+    
+    int option;
+    cout<<"Enter an option : ";
+    cin>>option;
+    
+    cout<<endl;
+    switch(option){
+        case 1: 
+        currsem();
+        break;
+        
+        case 2:
+        cumulative_cgpa();
+        break;
+        
+        case 3:
+        class_rep();
+        break;
+        
+        case 4:
+        return 0;
+        
+        
+        default:
+        cout<<"Invalid option. Choose the right one!!!"<<endl;
+        cout<<endl;
+        goto start;
+    }
+    
+        
+    }
+    
+}
+
+
+// Method 1
+void currsem(){
+    int sem_no;
+    cout<<"Enter the sem no: ";
+    cin>>sem_no;
+    int n;
+    cout<<"Enter the no: of subjects present in the sem: ";
+    cin>>n;
+    
+    float grade[n];
+    float credits[n];
+    
+    float sum=0;
+    for(int i=0;i<n;i++){
+        cin>>credits[i];
+        cin>>grade[i];
+        sum+=grade[i]*credits[i];
+        
+    }
+    float total;
+    if(sem_no%2==0){
+        total=sum/24;
+    }
+    else{
+        total=sum/23;
+    }
+    cout<<"CGPA for the the given sem is : "<<fixed << setprecision(2) << total << endl;
+    cout<<"percentage : "<<total*10<<" %"<<endl;
+}
+
+//method 2
+int cumulative_cgpa(){
+    
+    while(true)
+    {
+    start_1:
+    cout<<"        Context : "<<endl;
+    cout<<"                  1. Calculate cumulative cgpa"<<endl;
+    cout<<"                  2. Calculate cgpa for each sem along with cumulative cgpa "<<endl;
+    cout<<"                  3. Back to main menu"<<endl;
+    cout<<"                  4. Exit"<<endl;
+    
+    cout<<"Enter an option : ";
+    int val;
+    cin>>val;
+    cout<<endl;
+    
+    switch(val){
+        case 1:
+        cumm_1();
+        break;
+        
+        case 2:
+        cumm2();
+        break;
+        
+        case 3:
+        return 0;
+        
+        case 4:
+        exit(0);
+        
+        default:
+        cout<<"Sorry. Invalid option. Choose the right one!!!"<<endl;
+        cout<<endl;
+        goto start_1;
+        
+        
+        
+    }
+        
+    }
+   
+    
+}
+
+//method 2a
+void cumm_1(){
+    cout<<"Enter the no: of sememsters you want to calculate: ";
+    int no_sem;
+    cin>>no_sem;
+    
+    float cgpa_pts[no_sem];
+    cout<<"Please enter cgpa of each sem one by one.."<<endl;
+    float total;
+    for(int i=0;i<no_sem;i++){
+        cin>>cgpa_pts[i];
+        total+=cgpa_pts[i];
+    }
+    float cummulative_sum=total/no_sem;
+    cout<<"Your cumulative cgpa upto "<<no_sem<<" sem is: "<<fixed << setprecision(2)<<cummulative_sum<<endl;
+    cout<<"Percentage : "<<cummulative_sum*10<<endl;
+    cout<<endl;
+    
+    if(cummulative_sum>=8.50)
+    cout<<"Congratulations! You will be awarded a degree as First Class with Distinction."<<endl;
+    else if(cummulative_sum>=6.50 && cummulative_sum<8.50)
+    cout<< "Congratulations! You will be awarded a degree as First Class."<<endl;
+    else
+    cout<<"Congratulations! You will be awarded a degree as Second Class."<<endl;
+    
+    
+    
+    
+    
+}
+//method 2b
+void cumm2(){
+    cout<<"You need to enter the grade and credit points for" <<endl<<"each sem along with no: of subjects "
+    <<"in each sem to get the cumulative cgpa."<<endl;
+    
+    int no_sem;
+    cout<<"Enter the no: of semesters you want to calculate: ";
+    cin>>no_sem;
+    
+    float total=0;
+    float cumm_cgpa=0;
+    
+    int i=1;
+    while(i<=no_sem){
+        
+        cout<<"Enter the no: of subjects for "<<i<<" sem: ";
+        int no_sub;
+        cin>>no_sub;
+        float cre_pt[no_sub],gra_pt[no_sub];
+        float sum=0;
+        for(int j=0;j<no_sub;j++){
+            cin>>gra_pt[i];
+            cin>>cre_pt[i];
+            sum+=gra_pt[i]*cre_pt[i];
+        }
+        if(i%2==0)
+        sum=sum/24;
+        else
+        sum=sum/23;
+        
+        cout<<"CGPA for the "<<i<<" sem : "<<fixed << setprecision(2)<<sum<<endl;
+        total+=sum;
+        i++;
+        
+    }
+    cumm_cgpa=total/no_sem;
+    cout<<"Your cumulative cgpa for"<<no_sem<<" semesters is: "<<fixed << setprecision(2)<<cumm_cgpa<<endl;
+    cout<<"Percentage : "<<cumm_cgpa*10<<endl;
+    cout<<endl;
+    
+    
+    if(cumm_cgpa>=8.50)
+    cout<<"Congratulations! You will be awarded a degree as First Class with Distinction."<<endl;
+    else if(cumm_cgpa>=6.50 && cumm_cgpa<8.50)
+    cout<< "Congratulations! You will be awarded a degree as First Class."<<endl;
+    else
+    cout<<"Congratulations! You will be awarded a degree as Second Class."<<endl;
+    
+    
+}
+//method 3
+void class_rep(){
+     cout << left << setw(30) << "Classification"
+         <<setw(25)<< "CGPA Range"
+         << "Requirements" << endl;
+    cout << setfill('-') <<setw(70) << "" << endl;
+    cout << setfill(' ');
+
+    cout << left << setw(30) << "First Class with Distinction"
+         << setw(25) << "8.50 and above"
+         << "Passing all the courses in the first appearance" << endl
+         << setw(30) << "" << setw(25) << ""
+         << "and completing the program within the prescribed" << endl
+         << setw(56) << "" 
+         << "period of 8 semesters for all students (except"  <<endl
+         << setw(56) <<"" 
+         << "lateral entry students) and 6 semesters for the" <<endl
+         << setw(56) <<"" 
+         << "lateral entry students"
+         << endl;
+    cout<<endl;
+         
+    cout << left << setw(30) << "First Class"
+         << setw(25) << "6.50 and above"
+         << "Completing the program within a maximum of 10" << endl
+         << setw(30) << "" << setw(25) << ""
+         << "semesters for all students (except lateral" << endl
+         << setw(56) << "" 
+         << "entry students) and 8 semesters for the"  <<endl
+         << setw(56) <<"" 
+         << "lateral entry students" <<endl
+         <<endl;
+    cout<< endl;
+
+     cout << left << setw(30) << "Second Class"
+         << setw(25) << "Below 6.50"
+         << "Others" << endl
+         <<endl;
+    cout<< endl;
+}
